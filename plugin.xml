@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-fingerprint-auth"
+        version="1.0.0">
+    <name>FingerprintAuth</name>
+    <description>Plugin for verifying user identity via fingerprint</description>
+    <license>MIT</license>
+    <js-module src="www/fingerprint.js" name="fingerprint">
+        <clobbers target="fingerprint" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="FingerprintAuth" >
+                <param name="android-package" value="com.vertafore.cordova.fingerprint.FingerprintAuth"/>
+            </feature>
+        </config-file>
+        <source-file src="src/android/build-extras.gradle" target-dir="../android" />
+        <source-file src="src/android/gson-2.7.jar" target-dir="libs" framework="true" />
+        <source-file src="src/android/FingerprintAuth.java" target-dir="src/com/vertafore/cordova/fingerprint" />
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+        </config-file>
+
+    </platform>
+</plugin>
