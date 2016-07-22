@@ -8,7 +8,7 @@
     <description>Plugin for verifying user identity via fingerprint</description>
     <license>MIT</license>
     <js-module src="www/fingerprint.js" name="fingerprint">
-        <clobbers target="fingerprint" />
+        <clobbers target="FingerprintAuth" />
     </js-module>
 
     <platform name="android">
@@ -20,6 +20,18 @@
         <source-file src="src/android/build-extras.gradle" target-dir="../android" />
         <source-file src="src/android/gson-2.7.jar" target-dir="libs" framework="true" />
         <source-file src="src/android/FingerprintAuth.java" target-dir="src/com/vertafore/cordova/fingerprint" />
+        <source-file src="src/android/res/drawable/ic_fingerprint_error.xml" target-dir="res/drawable" />
+        <source-file src="src/android/res/drawable/ic_fingerprint_success.xml" target-dir="res/drawable" />
+        <source-file src="src/android/res/drawable-hdpi/ic_fp_40px.png" target-dir="res/drawable-hdpi" />
+        <source-file src="src/android/res/drawable-mdpi/ic_fp_40px.png" target-dir="res/drawable-mdpi" />
+        <source-file src="src/android/res/drawable-nodpi/android_robot.png" target-dir="res/drawable-nodpi" />
+        <source-file src="src/android/res/drawable-xhdpi/ic_fp_40px.png" target-dir="res/drawable-xhdpi" />
+        <source-file src="src/android/res/drawable-xxhdpi/ic_fp_40px.png" target-dir="res/drawable-xxhdpi" />
+        <source-file src="src/android/res/drawable-xxxhdpi/ic_fp_40px.png" target-dir="res/drawable-xxxhdpi" />
+        <source-file src="src/android/res/layout/fingerprint_dialog_container.xml" target-dir="res/layout" />
+        <source-file src="src/android/res/layout/fingerprint_dialog_content.xml" target-dir="res/layout" />
+        <source-file src="src/android/res/values/fpauth-colors.xml" target-dir="res/values" />
+        <source-file src="src/android/res/values/fpauth-strings.xml" target-dir="res/values" />
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.USE_FINGERPRINT" />
         </config-file>
